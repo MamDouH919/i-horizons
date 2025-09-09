@@ -1,70 +1,90 @@
-# React + TypeScript + Vite
+# Poke React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + TypeScript application that lists Pokemons from the [PokeAPI](https://pokeapi.co/).  
+Built using **Redux Toolkit** and **RTK Query** for state management and data fetching.  
 
-Currently, two official plugins are available:
+Users can:
+- View a list of Pokemons.
+- Click on a Pokemon to see its details.
+- Persistently store the fetched list.
+- Run the app against different API base URLs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project includes **unit and integration tests** with at least **60% coverage** to ensure correctness and reliability.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
+- ⚛️ React 18 with TypeScript  
+- 📦 Redux Toolkit & RTK Query  
+- 🧪 Unit & Integration Tests with React Testing Library + MSW  
+- ✅ Coverage requirement: 60%+  
+- 🌐 Configurable `BASE_API_URL`  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
+src/
+app/
+  store.ts
+components/
+  Loading.tsx
+  ErrorFetching.tsx
+pages/
+  pokemon/
+    list.tsx
+    view.tsx
+  test/
+    PokemonList.test.tsx
+    PokemonView.test.tsx
+services/
+    pokemon.ts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Prerequisites
+- Node.js `>=18`
+- npm `>=9`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# i-horizons
+---
+
+## 🛠️ Installation
+```bash
+# Clone the repository
+git clone https://github.com/MamDouH919/i-horizons.git
+cd i-horizons
+
+# Install dependencies
+npm install
+
+▶️ Running the App
+
+You can configure the API base URL using an environment variable.
+# Create .env file
+echo "VITE_API_URL=https://pokeapi.co/api/v2" > .env
+
+Start the development server:
+  - npm run dev
+
+
+Build for production:
+ - npm run build
+
+
+Preview production build:
+  - npm run preview
+
+🧪 Testing
+
+Run unit and integration tests with coverage:
+  - npm run test
+
+
+Check coverage report:
+open coverage/lcov-report/index.html
+
+
+🖼️ Example Screens
+
+Pokemon List Page – Displays list of Pokemons with images.
+Pokemon View Page – Shows detailed Pokemon info (name, height, weight, types, sprite).
